@@ -1,17 +1,16 @@
-function imagensFormatadas = carregarImagens(numImagens, altura, largura)
+function imagensFormatadas = carregarImagens(pasta, extensaoImagens, numImagens, altura, largura)
   % Carregas as imagens uma única vez
   persistent imagensCarregadas;
   persistent matrizFaces;
 
   % Número de pixels de cada imagem = altura * largura
   matrizFaces = zeros(altura * largura, numImagens);
-
   % Verifica se as imagens não foram ainda carregadas
   if (isempty(imagensCarregadas))
       coluna = 1;
       for i = 1:40
           for j = 1:10      
-              vetorColuna = matrizParaVetorColuna(imread(strcat('s', num2str(i), '-', num2str(j), '.pgm')));
+              vetorColuna = matrizParaVetorColuna(imread([pasta 's' num2str(i) '-' num2str(j) '.' extensaoImagens]));
               matrizFaces(:, coluna) = reshape(vetorColuna, size(vetorColuna, 1)*size(vetorColuna, 2), 1);
               coluna = coluna + 1;
           end

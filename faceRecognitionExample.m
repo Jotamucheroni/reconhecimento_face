@@ -13,7 +13,7 @@ function done = faceRecognitionExample()
 % Initialization **********************************************************
 % 
 % Loading the database into a matrix called "faceDatabaseMatrix".
-faceDatabaseMatrix = carregarImagens(400, 112, 92);
+faceDatabaseMatrix = carregarImagens('ATeT/', 'pgm', 400, 112, 92);
 
 % We randomly pick an image from our database and use the rest of the
 % images for training (so, the training is done on 399 pictures). We later
